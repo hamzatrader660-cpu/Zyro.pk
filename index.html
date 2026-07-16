@@ -206,6 +206,16 @@
     transition:all .2s ease;
   }
   .add-btn:hover{ background:var(--ink); color:var(--white); }
+  .card-actions{ display:flex; gap:8px; margin-top:10px; }
+  .insta-btn{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:6px;
+    background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
+    color:var(--white); border:none;
+    font-size:11px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
+    padding:9px 10px; cursor:pointer; text-decoration:none;
+    transition:opacity .2s ease;
+  }
+  .insta-btn:hover{ opacity:0.85; }
 
   /* ===== BANNER ===== */
   .banner{
@@ -377,7 +387,7 @@
     </div>
     <div>
       <h4>Follow</h4>
-      <ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">TikTok</a></li></ul>
+      <ul><li><a href="https://instagram.com/zyro_official12" target="_blank">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">TikTok</a></li></ul>
     </div>
   </div>
   <div class="footer-bottom">
@@ -414,6 +424,7 @@ const products = [
 ];
 
 let cart = [];
+const igUsername = "zyro_official12";
 
 function renderProducts(){
   const grid = document.getElementById('productGrid');
@@ -429,6 +440,9 @@ function renderProducts(){
         <div class="card-bottom">
           <div class="card-price">Rs ${p.price.toLocaleString()}</div>
           <button class="add-btn" onclick="addToCart(${p.id})">Add</button>
+        </div>
+        <div class="card-actions">
+          <a class="insta-btn" target="_blank" href="https://ig.me/m/${igUsername}?text=${encodeURIComponent('Hi! I want to order: ' + p.name + ' (Rs ' + p.price.toLocaleString() + ')')}">Order on Instagram</a>
         </div>
       </div>
     </div>
